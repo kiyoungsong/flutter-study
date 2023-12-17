@@ -2,7 +2,7 @@ import "package:flutter/material.dart";
 import "package:random_dice/screen/home_screen.dart";
 import "package:random_dice/screen/settings_screen.dart";
 import "dart:math";
-import "package:shake/shake.dart";
+import "package:sensors_plus/sensors_plus.dart";
 
 class RootScreen extends StatefulWidget {
   const RootScreen({super.key});
@@ -15,7 +15,7 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
   TabController? controller;
   double threshold = 2.7;
   int number = 1;
-  ShakeDetector? shakeDetector;
+  GyroscopeEvent? gyroscopeEvent;
 
   @override
   void initState() {
@@ -25,14 +25,17 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
 
     // 컨트롤러 속성이 변경될 때마다 실행함수 등록
     controller?.addListener(tabListener);
-    shakeDetector = ShakeDetector.autoStart(
-        shakeSlopTimeMS: 100, // 감지 주기
-        shakeThresholdGravity: threshold, // 감지 민감도
-        onPhoneShake: onPhoneShake); // 감지 후 실행할 함수
+    gyroscopeEventStream(samplingPeriod: Duration(milliseconds: 100)).listen(
+      (GyroscopeEvent event) {
+        setState(() {
+          gyroscopeEvent = event;
+        });
+        onPhoneShake();
+      },
+    );
   }
 
   void onPhoneShake() {
-    print('흔들나!');
     final rand = Random();
     setState(() {
       number = rand.nextInt(5) + 1;
@@ -46,7 +49,6 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
   @override
   void dispose() {
     controller!.removeListener(tabListener);
-    shakeDetector!.stopListening();
     super.dispose();
   }
 
@@ -66,7 +68,7 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
 
   List<Widget> renderChildren() {
     return [
-      HomeScreen(number: number),
+      HomeScreen(number: number, gyroscopeEvent: gyroscopeEvent),
       SettingScreen(threshold: threshold, onThresholdChange: onThresholdChange)
     ];
   }
