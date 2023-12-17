@@ -30,7 +30,14 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
         setState(() {
           gyroscopeEvent = event;
         });
-        onPhoneShake();
+
+        double x = double.parse(event.x.toStringAsFixed(1));
+        double y = double.parse(event.y.toStringAsFixed(1));
+        double z = double.parse(event.z.toStringAsFixed(1));
+
+        if (x != 0.0 || y != 0.0 || z != 0.0) {
+          onPhoneShake();
+        }
       },
     );
   }
