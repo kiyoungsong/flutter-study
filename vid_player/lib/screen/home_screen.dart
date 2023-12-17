@@ -15,9 +15,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: video == null ? renderEmpty() : renderVideo(),
-    );
+        backgroundColor: Colors.black,
+        body: Center(
+          child: OrientationBuilder(
+              builder: (context, orientation) =>
+                  video == null ? renderEmpty() : renderVideo()),
+        ));
   }
 
   Widget renderEmpty() {
