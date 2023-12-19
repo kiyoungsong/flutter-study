@@ -5,15 +5,15 @@ import 'package:video_call/screen/home_screen.dart';
 late List<CameraDescription> _cameras;
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
 
-  _cameras = await availableCameras();
+  // _cameras = await availableCameras();
   runApp(const MaterialApp(
     home: HomeScreen(),
   ));
 }
 
-/// CameraApp is the Main Application.
+// 카메라 테스트 위젯
 class CameraApp extends StatefulWidget {
   /// Default Constructor
   const CameraApp({super.key});
