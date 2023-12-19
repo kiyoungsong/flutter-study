@@ -16,11 +16,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.black,
-        body: Center(
-          child: OrientationBuilder(
-              builder: (context, orientation) =>
-                  video == null ? renderEmpty() : renderVideo()),
-        ));
+        body: OrientationBuilder(
+            builder: (context, orientation) =>
+                video == null ? renderEmpty() : renderVideo()));
   }
 
   Widget renderEmpty() {
