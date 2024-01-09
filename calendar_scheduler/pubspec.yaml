@@ -28,19 +28,21 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  build_runner: ^2.4.7
   cupertino_icons: ^1.0.6
-  dio: ^5.4.0 # 네트워크 요청
-  drift: ^2.14.1 # drift 플러그인
+  dio: ^5.4.0
+  drift: ^2.14.1
+  drift_dev: ^2.14.1
   flutter:
     sdk: flutter
-  get_it: ^7.6.4 # 프로젝트 전역으로 의존성 주입을 가능하게 하는 플러그인
-  intl: ^0.18.1 # 다국어화 기능 지원
-  path: ^1.8.3 # 경로 관련 기능을 제공하는 플러그인
-  path_provider: ^2.1.1 # 경로 관련 기능을 제공하는 플러그인
-  provider: ^6.1.1 # 상태 관리를 가능하게 하는 플러그인
-  sqlite3_flutter_libs: ^0.5.18 # SQLite 플러그인
-  table_calendar: ^3.0.9 # 달력 기능을 제공하는 플러그인
-  uuid: ^4.3.1 # UUID를 생성하는 플러그인
+  get_it: ^7.6.4
+  intl: ^0.18.1
+  path: ^1.8.3
+  path_provider: ^2.1.1
+  provider: ^6.1.1
+  sqlite3_flutter_libs: ^0.5.18
+  table_calendar: ^3.0.9
+  uuid: ^4.3.1
 
 dev_dependencies:
   flutter_lints: ^3.0.0
