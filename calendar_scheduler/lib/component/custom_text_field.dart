@@ -5,7 +5,15 @@ import 'package:flutter/services.dart';
 class CustomTextField extends StatelessWidget {
   final String label;
   final bool isTime;
-  const CustomTextField({required this.label, required this.isTime, super.key});
+  final FormFieldSetter<String> onSaved;
+  final FormFieldValidator<String> validator;
+
+  const CustomTextField(
+      {required this.label,
+      required this.isTime,
+      required this.onSaved,
+      required this.validator,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +30,10 @@ class CustomTextField extends StatelessWidget {
         Expanded(
           flex: isTime ? 0 : 1,
           child: TextFormField(
+            // 폼 저장 시 실행 함수
+            onSaved: onSaved,
+            // 폼 검증 시 실행 함수
+            validator: validator,
             cursorColor: Colors.grey,
             // 시간 관련 텍스트 필드가 아니면 한 줄 이상 작성 가능
             maxLines: isTime ? 1 : null,
