@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "117664216135",
+    "firebase_url": "https://test1234-6572d-default-rtdb.firebaseio.com",
+    "project_id": "test1234-6572d",
+    "storage_bucket": "test1234-6572d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117664216135:android:8336769c84e4d4b304ed62",
+        "android_client_info": {
+          "package_name": "com.example.calendar_scheduler_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6jc99-1N4OIN8_vXwqTD9jeNUK9yVGr4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
